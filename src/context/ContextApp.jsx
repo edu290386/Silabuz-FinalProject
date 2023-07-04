@@ -34,6 +34,7 @@ const ContextApp = ({children}) => {
     }
   }
 
+  console.log(userList)
 
 useEffect(() => {
   getUsers()

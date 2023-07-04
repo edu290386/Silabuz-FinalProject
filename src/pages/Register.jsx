@@ -2,6 +2,7 @@
 import { useState, useContext } from 'react'
 import { ContextProvider } from '../context/ContextApp' 
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Register = () => {
   const [dataRegister, setDataRegister] = useState({})
@@ -13,15 +14,23 @@ const Register = () => {
         })
   };
 
- 
-
   const userRegister = (event) => {
     event.preventDefault()
-    createUser(dataRegister)
-    navigate('/login')
+    const repeatedUser = userList.find( (user) => user.username == dataRegister.username)
+    if (!repeatedUser) {
+      createUser(dataRegister)
+      navigate('/login')
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Usuario existente!',
+        footer: '<a href="">Por favor ingrese otro usuario</a>'
+      })
+    }
 };
 
-
+console.log(userList)
 
   return (
     <>
@@ -30,7 +39,7 @@ const Register = () => {
             <div className='my-5'>
               <label className='flex flex-col mx-5'>
                   <span>Usuario</span>
-                  <input onChange={handleChange} name="user" type="text" className='border-2 rounded-lg'/>
+                  <input onChange={handleChange} name="username" type="text" className='border-2 rounded-lg'/>
               </label>
               <label className="flex flex-col mx-5 my-2">
                   <span>Password</span>
