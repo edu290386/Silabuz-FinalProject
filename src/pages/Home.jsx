@@ -1,7 +1,12 @@
-
+import InputDecimal from "../components/InputDecimal"
 const Home = () => {
     return (
-      <div>Home</div>
+      <div>
+        <div>Home</div>
+        <InputDecimal />
+      </div>
+      
+      
     )
   }
   
