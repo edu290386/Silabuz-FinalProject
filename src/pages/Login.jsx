@@ -1,23 +1,40 @@
 import { useState, useContext } from 'react'
 import { ContextProvider } from '../context/ContextApp' 
+import { getUsers } from '../services/Services'
+import useSWR from 'swr'
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const [dataLogin, setDataLogin] = useState({})
-  const { userList } = useContext(ContextProvider)
+  const userList = useSWR("ApiUsersLogin", getUsers , { refreshInterval: 1000 })
 
+
+  
   const handleChange = (e) => {
     const { name, value} = e.target
     setDataLogin({...dataLogin, [name]:value})
   }    
 
-  const userLogin = (e) => {
-    e.preventDefault()
-    const userFinded = userList.find((user) => user.username === edataLogin.username && user.password === edataLogin.password)
-    if(userFinded){
-      set
-    }
 
-  }
+
+const userLogin = (e) => {
+    e.preventDefault()
+    console.log(userList.data)
+    const userFind = userList.data.find((user) =>(
+      user.username === dataLogin.username && user.password === dataLogin.password)
+    )
+   
+    if (userFind) {
+      console.log("logged", userFind)
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Usuario o password incorrecto  !',
+        footer: '<a href="">Por favor vuelva a intentarlo</a>'
+      })
+    }
+}
  
   return (
     <div>

@@ -1,24 +1,33 @@
 
-import { useState, useContext } from 'react'
+import { useState,  useContext } from 'react'
 import { ContextProvider } from '../context/ContextApp' 
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { getUsers, createUsers } from '../services/Services'
+import useSWR from 'swr'
 
 const Register = () => {
   const [dataRegister, setDataRegister] = useState({})
-  const { userList, createUser } = useContext(ContextProvider)
+  
+  
+  const {data} = useSWR("ApiUsers", getUsers, { refreshInterval: 1000 })
+  
   const navigate = useNavigate()
 
+
+  
+  
   const handleChange = (e) => {
         setDataRegister({...dataRegister, score:0, [e.target.name]: e.target.value
         })
   };
 
-  const userRegister = (event) => {
-    event.preventDefault()
-    const repeatedUser = userList.find( (user) => user.username == dataRegister.username)
+  const userRegister = (e) => {
+    e.preventDefault()
+    const repeatedUser = data.find( (user) => user.username == dataRegister.username)
     if (!repeatedUser) {
-      createUser(dataRegister)
+      createUsers(dataRegister)
+
       navigate('/login')
     } else {
       Swal.fire({
@@ -29,8 +38,6 @@ const Register = () => {
       })
     }
 };
-
-console.log(userList)
 
   return (
     <div >
