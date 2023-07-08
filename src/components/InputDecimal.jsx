@@ -1,11 +1,16 @@
 
-import { useState, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import Stars from './Stars'
 import PrintDecimal from './printDecimal'
+import { ContextProvider } from '../context/ContextApp'
+import { update } from '../services/Services'
 
 const InputDecimal = () => {
     const [decimal, setDecimal] = useState("")
     const pi="1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109"
+
+    const {userData} = useContext(ContextProvider)
+    console.log(userData)
 
     const DetectNumber = (e) => {
             if (e.target.value == "Enter") return
@@ -14,9 +19,6 @@ const InputDecimal = () => {
             let variable = e.target.value
             setDecimal(variable)
             CompareDecimal(variable)
-   
-        
-        
     }
 
     const [ position, setPosition ] = useState(0)
@@ -34,7 +36,10 @@ const InputDecimal = () => {
          }, 2000)
          console.log("incorrecto", position)
         }
-    
+    }
+
+    if (userData.score < position) {
+      update(userData.id, {score: position})
     }
 
   return (
