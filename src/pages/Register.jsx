@@ -5,30 +5,45 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { getUsers, createUsers } from '../services/Services'
 import useSWR from 'swr'
-import { MyComponent } from '../components/SelectInput'
+import Select from 'react-select'
+import Avatar1 from '../assets/Avatar1.webp'
+import Avatar2 from '../assets/Avatar2.webp'
+import Avatar3 from '../assets/Avatar3.webp'
+import Avatar4 from '../assets/Avatar4.webp'
+import Avatar5 from '../assets/Avatar5.webp'
+
+const options = [
+  { value: Avatar1, label: 'Avatar 1' },
+  { value: Avatar2, label: 'Avatar 2' },
+  { value: Avatar3, label: 'Avatar 3' },
+  { value: Avatar4, label: 'Avatar 4' },
+  { value: Avatar5, label: 'Avatar 5' },
+]
 
 const Register = () => {
   const [dataRegister, setDataRegister] = useState({})
   const navigate = useNavigate()
   
-  const {data, isLoading} = useSWR("ApiUsers", getUsers)
-  // if(isLoading) return <div>Cargando</div>
-  
-
-
-  
+  const {data, isLoading, error} = useSWR("ApiUsers", getUsers)
+  if(error) return <div>error</div>;
+  if(isLoading) return <div>Cargando</div>;
+  console.log(data)
   
   const handleChange = (e) => {
         setDataRegister({...dataRegister, score:0, [e.target.name]: e.target.value
         })
   };
 
+  const handleSelectChange = (e) => {
+    console.log(e)
+    setDataRegister({...dataRegister, 'avatar': e.value})
+  }
+
   const userRegister = (e) => {
     e.preventDefault()
     const repeatedUser = data.find( (user) => user.username == dataRegister.username)
     if (!repeatedUser) {
       createUsers(dataRegister)
-
       navigate('/login')
     } else {
       Swal.fire({
@@ -72,7 +87,12 @@ const Register = () => {
           </button>
         </article>
         <article className='w-[250px] mx-5 my-6'>
-          <MyComponent className="mx-5 my-6"/>
+          <Select options={options} 
+            onChange={handleSelectChange} name="avatar"/>
+          <p className='my-6'>Tu avatar: </p>
+            <div className='flex justify-center'>
+                <img className=' rounded-lg my-3 w-[150px]' src={dataRegister.avatar} />
+            </div>   
         </article>
         </div>
           

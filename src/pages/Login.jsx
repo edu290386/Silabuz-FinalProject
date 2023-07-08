@@ -7,7 +7,9 @@ import Swal from 'sweetalert2'
 
 const Login = () => {
   const [dataLogin, setDataLogin] = useState({})
-  const userList = useSWR("ApiUsersLogin", getUsers )
+  const {setUserData} = useContext(ContextProvider)
+  const userList = useSWR("ApiUsersLogin", getUsers, { refreshInterval: 1000 } )
+  if(userList.error) return <div>error</div>;
   if(userList.isLoading) return <div>Cargando</div>;
 
   
@@ -16,17 +18,14 @@ const Login = () => {
     setDataLogin({...dataLogin, [name]:value})
   }    
 
-
-
 const userLogin = (e) => {
     e.preventDefault()
-    console.log(userList.data)
     const userFind = userList.data.find((user) =>(
       user.username === dataLogin.username && user.password === dataLogin.password)
     )
    
     if (userFind) {
-      console.log("logged", userFind)
+      setUserData(userFind)
     } else {
       Swal.fire({
         icon: 'error',

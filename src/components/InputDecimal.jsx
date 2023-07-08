@@ -26,15 +26,13 @@ const InputDecimal = () => {
        if(valor === pi[position]) {
          setPosition(position+1)
          setGoodNumber([...goodNumber, valor])
-         setTimeout(() => {
-            setDecimal("")
-         }, 2000)
+         setDecimal("")
          console.log("correcto", position)
        } else {
         setTimeout(() => {
             setDecimal("")
          }, 2000)
-         console.log("incorrectp", position)
+         console.log("incorrecto", position)
         }
     
     }

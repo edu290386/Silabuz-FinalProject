@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import Select from 'react-select'
 import Avatar1 from '../assets/Avatar1.webp'
@@ -18,13 +17,10 @@ const options = [
 
 
 export const MyComponent = () => {
-
     const [ imageAvatar, setImageAvatar] = useState("")
-
     const handleSelectChange = (e) => {
         setImageAvatar(e.value)
     }
-
 
     return (
         <div>
