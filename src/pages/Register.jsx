@@ -5,14 +5,15 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { getUsers, createUsers } from '../services/Services'
 import useSWR from 'swr'
+import { MyComponent } from '../components/SelectInput'
 
 const Register = () => {
   const [dataRegister, setDataRegister] = useState({})
-  
-  
-  const {data} = useSWR("ApiUsers", getUsers, { refreshInterval: 1000 })
-  
   const navigate = useNavigate()
+  
+  const {data, isLoading} = useSWR("ApiUsers", getUsers)
+  // if(isLoading) return <div>Cargando</div>
+  
 
 
   
@@ -44,7 +45,8 @@ const Register = () => {
       <h1 className='mt-10 m-5 text-center'>Bienvenido, registrar su nueva cuenta de usuario</h1>
       <div className='flex justify-center align-middle border'>
       <form onSubmit={userRegister} className='flex gap-4 items-end'>
-        <div className='my-5'>
+        <div className='flex gap-x-40'>
+        <article className='w-[300px]'>
           <label className='flex flex-col mx-5'>
               <span>Usuario</span>
               <input onChange={handleChange} name="username" type="text" className='border-2 rounded-lg'/>
@@ -67,8 +69,13 @@ const Register = () => {
           </label>
           <button className="rounded-lg m-5 px-2 py-0.5 w-max h-max bg-lime-300 ">
             Registrar
-        </button>
-        </div> 
+          </button>
+        </article>
+        <article className='w-[250px] mx-5 my-6'>
+          <MyComponent className="mx-5 my-6"/>
+        </article>
+        </div>
+          
       </form>
     </div>
     </div>

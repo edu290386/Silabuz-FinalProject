@@ -4,10 +4,11 @@ import { getUsers } from '../services/Services'
 import useSWR from 'swr'
 import Swal from 'sweetalert2'
 
+
 const Login = () => {
   const [dataLogin, setDataLogin] = useState({})
-  const userList = useSWR("ApiUsersLogin", getUsers , { refreshInterval: 1000 })
-
+  const userList = useSWR("ApiUsersLogin", getUsers )
+  if(userList.isLoading) return <div>Cargando</div>;
 
   
   const handleChange = (e) => {
