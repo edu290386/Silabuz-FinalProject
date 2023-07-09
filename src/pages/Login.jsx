@@ -21,13 +21,13 @@ const Login = () => {
 
 const userLogin = (e) => {
     e.preventDefault()
-    let userFind = userList.data.find((user) =>(
+    const userFind = userList.data.find((user) =>(
       user.username === dataLogin.username && user.password === dataLogin.password)
     )
    
     if (userFind) {
       setUserData({...userFind})
-      userFind = {}
+      
     } else {
       Swal.fire({
         icon: 'error',
