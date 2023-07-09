@@ -3,14 +3,13 @@ import { useState, useContext } from 'react'
 import Stars from './Stars'
 import PrintDecimal from './printDecimal'
 import { ContextProvider } from '../context/ContextApp'
-import { update } from '../services/Services'
+import { updateUsers } from '../services/Services'
 
 const InputDecimal = () => {
     const [decimal, setDecimal] = useState("")
     const pi="1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109"
 
     const {userData} = useContext(ContextProvider)
-    console.log(userData)
 
     const DetectNumber = (e) => {
             if (e.target.value == "Enter") return
@@ -30,18 +29,16 @@ const InputDecimal = () => {
          setGoodNumber([...goodNumber, valor])
          setDecimal("")
          console.log("correcto", position)
+         const newscore = (position+1)*100
+         if (userData.score < newscore) {
+          updateUsers(userData.id, {score: newscore})        
+        }
        } else {
-        setTimeout(() => {
             setDecimal("")
-         }, 2000)
          console.log("incorrecto", position)
         }
     }
-
-    if (userData.score < position) {
-      update(userData.id, {score: position})
-    }
-
+    
   return (
     <div>
         <h1 className='mx-5 my-2'>Pi Game</h1>

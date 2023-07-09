@@ -26,7 +26,7 @@ export  const createUsers = async (body) => {
     }
   }
 
-  export const update = async (id, body) => {
+  export const updateUsers = async (id, body) => {
     try {
       const response = await fetch(`${url}/${id}`, {
         method: "PUT",
