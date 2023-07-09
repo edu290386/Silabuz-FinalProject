@@ -1,10 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../assets/math-pi.svg'
 import { ContextProvider } from '../context/ContextApp'
 import {  useContext } from 'react'
 
+
 const DashboardNavbar = () => {
     const {userData} = useContext(ContextProvider)
+    const navigate = useNavigate()
+    
+    const closeSession = () => {
+        navigate("/")
+    }
 
   return (
 
@@ -36,6 +42,7 @@ const DashboardNavbar = () => {
                         <img src={userData.avatar} className='w-[40px] rounded-full mx-3' alt="" />
                         <p className='pt-2 font-semibold'>{userData.username}</p>
                 </li>
+                <button onClick={closeSession} className='mx-3 my-1 px-3 py-1 bg-lime-300 rounded-lg'>Salir</button>
             </ul>
         </article>
     </div>

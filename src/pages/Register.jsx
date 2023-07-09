@@ -27,7 +27,7 @@ const Register = () => {
   const {data, isLoading, error} = useSWR("ApiUsers", getUsers)
   if(error) return <div>error</div>;
   if(isLoading) return <div>Cargando</div>;
-  console.log(data)
+ 
   
   const handleChange = (e) => {
         setDataRegister({...dataRegister, score:0, [e.target.name]: e.target.value
@@ -35,7 +35,6 @@ const Register = () => {
   };
 
   const handleSelectChange = (e) => {
-    console.log(e)
     setDataRegister({...dataRegister, 'avatar': e.value})
   }
 

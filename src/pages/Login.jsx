@@ -15,17 +15,19 @@ const Login = () => {
   
   const handleChange = (e) => {
     const { name, value} = e.target
+    
     setDataLogin({...dataLogin, [name]:value})
   }    
 
 const userLogin = (e) => {
     e.preventDefault()
-    const userFind = userList.data.find((user) =>(
+    let userFind = userList.data.find((user) =>(
       user.username === dataLogin.username && user.password === dataLogin.password)
     )
    
     if (userFind) {
-      setUserData(userFind)
+      setUserData({...userFind})
+      userFind = {}
     } else {
       Swal.fire({
         icon: 'error',

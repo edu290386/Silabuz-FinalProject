@@ -10,6 +10,8 @@ const ContextApp = ({children}) => {
   useEffect(() => {
     if (Object.values(userData).length > 0) {
         navigate('/dashboard', {state:{logged: true}, replace: true})
+    } else {
+      navigate('/login', {state:{logged: false}})
     }} , [userData] )
 
   return (
