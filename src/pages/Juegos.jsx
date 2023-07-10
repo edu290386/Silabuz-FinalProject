@@ -1,9 +1,8 @@
-import InputDecimal from '../components/InputDecimal'
+import InputDecimal from '../components/pigame/InputDecimal'
 
 const Juegos = () => {
   return (
     <div>
-      <div>Juegos</div>
       <InputDecimal />
     </div>
     
