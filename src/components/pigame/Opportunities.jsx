@@ -17,9 +17,9 @@ const Opportunities = ({opportunities}) => {
   
  return (
     <div>
-        <div className='flex gap-x-5'>
+        <div className='flex flex-col m-3 justify-center gap-x-5'>
             <div>Oportunidades: ({3-opportunities})</div> 
-            <div className="flex">{WrongNumber()}</div>
+            <div className="flex justify-center flex-wrap gap-1">{WrongNumber()}</div>
         </div>
     </div>
   )

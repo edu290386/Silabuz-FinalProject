@@ -21,7 +21,7 @@ const Ranking = () => {
           <p className="text-neutral-500 dark:text-neutral-400">Puntuación: {user.score} puntos</p>
           <button
             type="button"
-            className="inline-block rounded bg-[#3B71CA] mt-2 px-6 pb-2 pt-2 text-xs font-medium ">
+            className="inline-block rounded bg-[#3B71CA] mt-2 px-6 pb-2 pt-2 text-xs font-medium text-white ">
             Ver perfil
           </button>
         </div>

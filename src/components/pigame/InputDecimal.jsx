@@ -33,17 +33,30 @@ const InputDecimal = () => {
         setStateConfetti(false)
       }
     }
-    
+
+
   return (
-    <div className='mx-5 my-2'>
-        <h1 className='text-3xl'>Pi Game</h1>
-        <input className="bg-white focus:outline-none  border border-[#3B71CA] rounded-lg py-2 px-4 block w-[400px]" onChange={detectNumber} type="tel" value={decimal} name="decimal" placeholder="Escribir decimal de Pi" />
-        <PrintDecimal prueba={goodNumber} stateConfetti={stateConfetti}/>
-        <Stars position={position} />
-        <Opportunities opportunities={badNumber} />
-        <Score newScore={position}/>
-    </div>
-    
+      <div className='h-[calc(100vh-72px)] flex items-center justify-center'>
+        <div className='rounded-xl border border-[#3B71CA] w-[40%] flex flex-col text-center '>
+          <h1 className='text-3xl mt-4'>Pi Game</h1>
+          <div className='flex justify-center'>
+            { (badNumber < 3) ? <input className="bg-white focus:outline-none  border border-[#3B71CA] rounded-lg my-5 py-2 px-4 block w-[400px]" onChange={detectNumber} type="tel" value={decimal} name="decimal" placeholder="Escribir decimal de Pi" /> : <div className='my-2'></div>}
+          </div>
+          <PrintDecimal prueba={goodNumber} stateConfetti={stateConfetti}/>
+          <div className='flex flex-col justify-center items-center'>
+            <Stars position={position} />
+            <Opportunities opportunities={badNumber} />
+            <Score newScore={position}/>
+            {(badNumber < 3) ? <div className='my-2'></div> : <button
+              type="button"
+              className="rounded bg-[#3B71CA] mt-6 mb-6 px-6 pb-2 pt-2 text-xs font-medium text-white w-[200px]">
+            Reiniciar juego
+            </button>}
+          </div>
+          
+          
+        </div>
+      </div>
   )
 }
 

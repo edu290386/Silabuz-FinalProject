@@ -4,8 +4,8 @@ const ConfettiCheck = () => {
 
     return (
       <Confetti
-        width={400}
-        height={300}
+        width={window.innerWidth}
+        height={window.innerHeight}
       />
     );
   };

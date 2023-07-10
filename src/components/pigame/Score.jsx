@@ -12,7 +12,7 @@ const Score = ({newScore}) => {
 
 
   return (
-    <div>
+    <div className="">
         <div>Puntuación: {total} puntos</div>
     </div>
     

@@ -5,7 +5,7 @@ const PrintDecimal = ({prueba , stateConfetti}) => {
     
     return (
         <div>
-            <div className='text-green-700 text-2xl'>3. {prueba.map((letter, index)=>(
+            <div className='text-green-700 text-2xl mb-3'>3. {prueba.map((letter, index)=>(
                 <span key={index}>{letter}</span>
              ))}</div>
             <div>
