@@ -20,25 +20,27 @@ const InputDecimal = () => {
     const [ position, setPosition ] = useState(0)
     const [ goodNumber, setGoodNumber ] = useState([])
     const [ badNumber, setBadNumber ] = useState(0)
-    
+    const [ stateConfetti, setStateConfetti] = useState(false)
     const compareDecimal = (valor) => {
       if(valor === pi[position]) {
         setPosition(position+1)
         setGoodNumber([...goodNumber, valor])
         setDecimal("")
-        } else {
-          setBadNumber(badNumber+1)
-          setDecimal("")
+        setStateConfetti(true)
+      } else {
+        setBadNumber(badNumber+1)
+        setDecimal("")
+        setStateConfetti(false)
       }
     }
     
   return (
     <div className='mx-5 my-2'>
-        <h1>Pi Game</h1>
-        <input className="border-2 rounded-lg" onChange={detectNumber} type="text" value={decimal} name="decimal" placeholder="Escribir decimal de Pi" />
-        <PrintDecimal prueba={goodNumber}/>
+        <h1 className='text-3xl'>Pi Game</h1>
+        <input className="bg-white focus:outline-none  border border-[#3B71CA] rounded-lg py-2 px-4 block w-[400px]" onChange={detectNumber} type="tel" value={decimal} name="decimal" placeholder="Escribir decimal de Pi" />
+        <PrintDecimal prueba={goodNumber} stateConfetti={stateConfetti}/>
         <Stars position={position} />
-        <Opportunities opportunities={badNumber}/>
+        <Opportunities opportunities={badNumber} />
         <Score newScore={position}/>
     </div>
     
