@@ -7,7 +7,7 @@ const Ranking = () => {
   if(userList.isLoading) return <div>Cargando</div>;
   
   const ranking = [...userList.data].sort((a,b) => a.score < b.score ? 1 : -1)
-  console.log(userList.data)
+  console.log(userList.data[2].avatar);
   return (
     <div className='my-6' >
       <div className='flex justify-center flex-wrap gap-x-16 gap-y-7'>{ranking.map( (user, index) => (

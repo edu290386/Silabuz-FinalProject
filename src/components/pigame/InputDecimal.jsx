@@ -36,7 +36,7 @@ const InputDecimal = () => {
 
 
   return (
-      <div className='h-[calc(100vh-72px)] flex items-center justify-center'>
+      <div className='mt-20 flex items-center justify-center'>
         <div className='rounded-xl border border-[#3B71CA] w-[40%] flex flex-col text-center '>
           <h1 className='text-3xl mt-4'>Pi Game</h1>
           <div className='flex justify-center'>
