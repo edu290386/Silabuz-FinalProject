@@ -21,7 +21,7 @@ const options = [
 ]
 
 const Register = () => {
-  const [dataRegister, setDataRegister] = useState({})
+  const [dataRegister, setDataRegister] = useState({avatar: Avatar1})
   const navigate = useNavigate()
   
   const {data, isLoading, error} = useSWR("ApiUsers", getUsers)
@@ -87,7 +87,7 @@ const Register = () => {
         </article>
         <article className='w-[250px] mx-5 my-6'>
           <Select options={options} 
-            onChange={handleSelectChange} name="avatar"/>
+            onChange={handleSelectChange} name="avatar" defaultValue={options[0]}/>
           <p className='my-6'>Tu avatar: </p>
             <div className='flex justify-center'>
                 <img className=' rounded-lg my-3 w-[150px]' src={dataRegister.avatar} />
