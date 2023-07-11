@@ -9,7 +9,7 @@ import HomeDashboard from '../pages/HomeDashboard'
 import Juegos from '../pages/Juegos'
 import Ranking from '../pages/Ranking'
 import Cart from '../pages/Cart'
-import { UserRanking } from '../pages/UserRanking'
+import UserRanking from '../pages/UserRanking'
 
 const AppRouter = () => {
   return (
@@ -23,7 +23,7 @@ const AppRouter = () => {
                 <Route index element={<HomeDashboard />} />
                 <Route path="juegos" element={<Juegos />}/>
                 <Route path="ranking" element={<Ranking />}/>
-                  <Route path=':idUser' element={<UserRanking />}/>
+                <Route path='ranking/:idUser' element={<UserRanking />}/>
                 <Route path="Cart" element={<Cart />}/>
             </Route>
         </Routes>

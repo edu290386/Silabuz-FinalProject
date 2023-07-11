@@ -10,6 +10,7 @@ export const getUsers = async () => {
     }
   };
 
+  
 export  const createUsers = async (body) => {
     try {
       const response = await fetch(url, {
@@ -41,3 +42,5 @@ export  const createUsers = async (body) => {
       console.log(error);
     }
   };
+
+  

@@ -1,6 +1,5 @@
 
-import { useState,  useContext } from 'react'
-import { ContextProvider } from '../context/ContextApp' 
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { getUsers, createUsers } from '../services/Services'
@@ -88,9 +87,9 @@ const Register = () => {
         <article className='w-[250px] mx-5 my-6'>
           <Select options={options} 
             onChange={handleSelectChange} name="avatar" defaultValue={options[0]}/>
-          <p className='my-6'>Tu avatar: </p>
+          <p className='my-4'>Tu avatar: </p>
             <div className='flex justify-center'>
-                <img className=' rounded-lg my-3 w-[150px]' src={dataRegister.avatar} />
+                <img className=' rounded-lg w-[150px]' src={dataRegister.avatar} />
             </div>   
         </article>
         </div>
