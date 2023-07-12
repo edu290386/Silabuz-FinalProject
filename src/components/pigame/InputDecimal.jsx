@@ -34,6 +34,13 @@ const InputDecimal = () => {
       }
     }
 
+    const restartGame = () => {
+      setPosition(0)
+      setDecimal("")
+      setBadNumber(0)
+      setGoodNumber([])
+    }
+
 
   return (
       <div className='mt-20 flex items-center justify-center'>
@@ -47,7 +54,7 @@ const InputDecimal = () => {
             <Stars position={position} />
             <Opportunities opportunities={badNumber} />
             <Score newScore={position}/>
-            {(badNumber < 3) ? <div className='my-2'></div> : <button
+            {(badNumber < 3) ? <div className='my-2'></div> : <button onClick={restartGame}
               type="button"
               className="rounded bg-[#3B71CA] mt-6 mb-6 px-6 pb-2 pt-2 text-xs font-medium text-white w-[200px]">
             Reiniciar juego

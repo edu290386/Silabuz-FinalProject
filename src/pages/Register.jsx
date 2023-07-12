@@ -20,7 +20,7 @@ const options = [
 ]
 
 const Register = () => {
-  const [dataRegister, setDataRegister] = useState({avatar: Avatar1})
+  const [dataRegister, setDataRegister] = useState({avatar: Avatar1, lives:0})
   const navigate = useNavigate()
   
   const {data, isLoading, error} = useSWR("ApiUsers", getUsers)
