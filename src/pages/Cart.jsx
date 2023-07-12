@@ -38,6 +38,25 @@ const Cart = () => {
     }
    
   }
+  
+  
+  const deleteItems = (product) => {
+  
+    const existentProduct = productsCart.find(p => p.productid === product.productid)
+    console.log("existe", existentProduct)
+    if (existentProduct) {
+      if( existentProduct.cantidad > 0) {
+      const numberProduct = {...existentProduct, cantidad:existentProduct.cantidad--}
+      const saveProducts = productsCart.map( prod => prod.id === existentProduct.productid ? numberProduct : prod)
+      setProducstCart(saveProducts)
+      }
+      else {
+        const filterProduct = productsCart.filter(prods => prods.id !== existentProduct.productid)
+        setProducstCart(filterProduct)
+      }
+    } 
+  }
+  
   console.log(productsCart)
     
 
@@ -53,9 +72,9 @@ const Cart = () => {
               <h1 className="mt-2 text-xl font-bold">{product.title}</h1>
               <div className='mt-2 flex text-lg justify-center'>{renderLives(product.lives)}</div>
               <p className="mt-2 text-lg">$ {product.precio}</p>
-              {(productsCart.length !== 0) ? productsCart[index].cantidad : <div>Funciona</div> }
-              <button onClick={() => addItems(product)}>Agregar carrito</button>
-              <button>Eliminar</button>
+              {productsCart[index] ? productsCart[index].cantidad : <div>Funciona</div> }
+              <button onClick={() => addItems(product)} className="rounded bg-[#3B71CA] mt-6 mb-6 px-6 pb-2 pt-2 text-xs font-medium text-white w-[200px]">Agregar carrito</button>
+              <button className="rounded bg-[#3B71CA] mt-6 mb-6 px-6 pb-2 pt-2 text-xs font-medium text-white w-[200px]" onClick={() => deleteItems(product)} >Eliminar</button>
             </section>
           </div>
         ))}
