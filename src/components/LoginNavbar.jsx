@@ -10,6 +10,7 @@ const DashboardNavbar = () => {
     
     const closeSession = () => {
         navigate("/")
+        localStorage.removeItem("user")
     }
 
   return (

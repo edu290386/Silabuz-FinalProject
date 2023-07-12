@@ -27,7 +27,7 @@ const userLogin = (e) => {
    
     if (userFind) {
       setUserData({...userFind})
-      
+      localStorage.setItem("user", JSON.stringify(userFind))
     } else {
       Swal.fire({
         icon: 'error',
