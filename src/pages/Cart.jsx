@@ -72,7 +72,7 @@ const Cart = () => {
               <h1 className="mt-2 text-xl font-bold">{product.title}</h1>
               <div className='mt-2 flex text-lg justify-center'>{renderLives(product.lives)}</div>
               <p className="mt-2 text-lg">$ {product.precio}</p>
-              {productsCart[index] ? productsCart[index].cantidad : <div>Funciona</div> }
+              {productsCart[product.productid-1] ? productsCart[product.productid-1].cantidad : <div>Funciona</div> }
               <button onClick={() => addItems(product)} className="rounded bg-[#3B71CA] mt-6 mb-6 px-6 pb-2 pt-2 text-xs font-medium text-white w-[200px]">Agregar carrito</button>
               <button className="rounded bg-[#3B71CA] mt-6 mb-6 px-6 pb-2 pt-2 text-xs font-medium text-white w-[200px]" onClick={() => deleteItems(product)} >Eliminar</button>
             </section>

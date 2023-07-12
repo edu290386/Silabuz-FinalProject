@@ -9,7 +9,7 @@ const ContextApp = ({ children }) => {
   const token = localStorage.getItem("user");
   console.log(token);
 
-  const [activeTime, setActiveTime] = useState(null)
+ 
 
   useEffect(() => {
     if (token) {
@@ -20,7 +20,33 @@ const ContextApp = ({ children }) => {
     }
   }, [token]);
 
-  useEffect(() => {})
+
+  useEffect(() => {
+    if (token !== null) {
+      const eventList = [
+        "mousemove",
+        "mousedown",
+        "onclick",
+        "keydown",
+        "scroll",
+      ];
+
+      let timeId
+      const activeTime = () => {
+        clearTimeout(timeId)
+        timeId = setTimeout(() => {
+          localStorage.removeItem("user")
+          navigate("/login")
+        }, 40000)
+      }
+      
+      eventList.forEach((event) => {
+        document.addEventListener(event, activeTime);
+      });
+      activeTime()
+    }
+  }, [token]);
+
 
 
   return (
