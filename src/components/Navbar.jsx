@@ -44,14 +44,14 @@ export const Navbar = () => {
                   <a href="/">
                     <img
                       className="block h-10 w-auto lg:hidden"
-                      src="./src/assets/Logo_memory_gaming.png"
+                      src="/src/assets/Logo_memory_gaming.png"
                       alt="Your Company"
                     />
                   </a>
                   <a href="/">
                     <img
                       className="hidden h-10 w-auto lg:block"
-                      src="./src/assets/Logo_memory_gaming.png"
+                      src="/src/assets/Logo_memory_gaming.png"
                       alt="Your Company"
                     />
                   </a>
