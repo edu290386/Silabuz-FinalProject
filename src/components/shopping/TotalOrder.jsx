@@ -13,9 +13,9 @@ const TotalOrder = ({productsCart}) => {
 
   return (
     <div className="h-full flex mt-10">    
-        <div className="relative overflow-x-auto ">
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-centertext-xs text-white uppercase bg-[#3B71CA] dark:bg-gray-700 dark:text-gray-400">
+        <div className="flex flex-col justify-center overflow-x-auto ">
+            <table className="w-auto text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead className="text-centertext-xs uppercase bg-gray-100 text-gray-700">
                     <tr>
                         <th scope="col" className="px-6 py-3">
                             Precio Total
@@ -26,8 +26,8 @@ const TotalOrder = ({productsCart}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <tr className="bg-white border-b">
+                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             ${precioTotal}
                         </th>
                         <td className="px-6 py-4 text-center">
@@ -36,7 +36,7 @@ const TotalOrder = ({productsCart}) => {
                     </tr>     
                 </tbody>
             </table>
-            <button className="rounded bg-[#3B71CA] mt-1 mb-1 px-6 pb-2 pt-2 text-xs font-medium text-white w-[140px]" onClick={buyProducts} >Comprar</button>
+            <button className="rounded w-auto bg-green-400 mt-1 mb-1 px-6 pb-2 pt-2 text-xs font-medium text-white w-[140px]" onClick={buyProducts} >Comprar</button>
           </div>
         </div> 
   )

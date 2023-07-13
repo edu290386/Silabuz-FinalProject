@@ -19,7 +19,7 @@ const ContextApp = ({ children }) => {
       setUserData(JSON.parse(token));
       navigate(pathname, { state: { logged: true }, replace: true });
     } else {
-      navigate("/login", { state: { logged: false } });
+      navigate(pathname, { state: { logged: false } });
     }
   }, []);
 

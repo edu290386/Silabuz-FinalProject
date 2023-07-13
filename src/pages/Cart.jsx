@@ -62,29 +62,29 @@ const Cart = () => {
  
 
   return (
-    <div className="flex">
-      <div className='h-full flex items-center justify-center mt-5'>
+    <div class="flex w-full justify-center items-center flex-col">
+      <div className='w-auto flex items-center justify-center mb-20'>
         <article className="flex flex-wrap justify-center gap-10 mt-4 text-center">
           { productList.map((product) => (
               <div key={product.productid} className='grid grid-cols-1 grid-rows-2 rounded-lg w-50 max-w-[12rem] h-[20rem]'>
-              <section className="mt-2 w-full h-full">
+              <section className="mt-2 w-full">
                 <img src={product.img} alt="" className="w-full h-full object-contain" />
               </section>
               <section className="mt-2">
                 <h1 className="mt-2 text-xl font-bold">{product.title}</h1>
                 <div className='mt-2 flex text-lg justify-center'>{renderLives(product.lives)}</div>
                 <p className="mt-2 text-lg">$ {product.precio}</p>
-                <button onClick={() => addItems(product)} className="rounded bg-[#3B71CA] mt-2 mb-2 px-6 pb-2 pt-2 text-xs font-medium text-white w-[140px]">Agregar carrito</button>
-                <button className="rounded bg-[#3B71CA] mt-1 mb-1 px-6 pb-2 pt-2 text-xs font-medium text-white w-[140px]" onClick={() => deleteItems(product)} >Eliminar</button>
+                <button onClick={() => addItems(product)} className="rounded bg-green-400 mt-2 mb-2 px-6 pb-2 pt-2 text-xs font-medium text-white w-[140px]">Agregar carrito</button>
+                <button className="rounded bg-green-400 mt-1 mb-1 px-6 pb-2 pt-2 text-xs font-medium text-white w-[140px]" onClick={() => deleteItems(product)} >Eliminar</button>
               </section>
             </div>
           ))}
         </article>
       </div>
 
-      <div className="flex flex-col mx-auto">  
+      <div className="flex flex-col grid grid-cols-2 gap-16 mx-auto">
+        <DetailOrder productsCart={productsCart}/>    
         <TotalOrder productsCart={productsCart}/>
-        <DetailOrder productsCart={productsCart}/>  
       </div> 
 
     </div>

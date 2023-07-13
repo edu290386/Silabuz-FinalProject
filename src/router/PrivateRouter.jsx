@@ -4,7 +4,7 @@ const PrivateRouter = ({children}) => {
     const location = useLocation()
     console.log(location)
 
-    return location?.state?.logged ? children : <Navigate to={'/login'} />
+    return location?.state?.logged ? children : <Navigate to={'/'} />
 }
 
 export default PrivateRouter

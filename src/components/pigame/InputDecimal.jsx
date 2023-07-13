@@ -44,10 +44,10 @@ const InputDecimal = () => {
 
   return (
       <div className='mt-20 flex items-center justify-center'>
-        <div className='rounded-xl border border-[#3B71CA] w-[40%] flex flex-col text-center '>
+        <div className='rounded-xl border border-gray-200 w-[40%] flex flex-col text-center '>
           <h1 className='text-3xl mt-4'>Pi Game</h1>
           <div className='flex justify-center'>
-            { (badNumber < 3) ? <input className="bg-white focus:outline-none  border border-[#3B71CA] rounded-lg my-5 py-2 px-4 block w-[400px]" onChange={detectNumber} type="tel" value={decimal} name="decimal" placeholder="Escribir decimal de Pi" /> : <div className='my-2'></div>}
+            { (badNumber < 3) ? <input className="bg-white focus:outline-none  border border-gray-400 rounded-lg my-5 py-2 px-4 block w-[400px]" onChange={detectNumber} type="tel" value={decimal} name="decimal" placeholder="Escribir decimal de Pi" /> : <div className='my-2'></div>}
           </div>
           <PrintDecimal prueba={goodNumber} stateConfetti={stateConfetti}/>
           <div className='flex flex-col justify-center items-center'>
