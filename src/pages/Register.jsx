@@ -56,48 +56,93 @@ const Register = () => {
 console.log(Avatar2)
 
   return (
-    <div >
-      <h1 className='mt-10 m-5 text-center'>Bienvenido, registrar su nueva cuenta de usuario</h1>
-      <div className='flex justify-center align-middle border'>
-      <form onSubmit={userRegister} className='flex gap-4 items-end'>
-        <div className='flex gap-x-40'>
-        <article className='w-[300px]'>
-          <label className='flex flex-col mx-5'>
-              <span>Usuario</span>
-              <input onChange={handleChange} name="username" type="text" className='border-2 rounded-lg'/>
-          </label>
-          <label className="flex flex-col mx-5 my-2">
-              <span>Password</span>
-              <input onChange={handleChange} name="password" type="password" className='border-2 rounded-lg' />
-          </label>
-          <label className='flex flex-col mx-5 my-2'>
-              <span>Nombre</span>
-              <input onChange={handleChange} name="name" type="text" className='border-2 rounded-lg'/>
-          </label>
-          <label className="flex flex-col mx-5 my-2">
-              <span>Apellido</span>
-              <input onChange={handleChange} name="lastname" type="text" className='border-2 rounded-lg' />
-          </label>
-          <label className="flex flex-col mx-5 my-2">
-              <span>Email</span>
-              <input onChange={handleChange} name="email" type="text" className='border-2 rounded-lg' />
-          </label>
-          <button className="rounded-lg m-5 px-2 py-0.5 w-max h-max bg-lime-300 ">
-            Registrar
-          </button>
-        </article>
-        <article className='w-[250px] mx-5 my-6'>
-          <Select options={options} 
-            onChange={handleSelectChange} name="avatar" defaultValue={options[0]}/>
-          <p className='my-4'>Tu avatar: </p>
-            <div className='flex justify-center'>
-                <img className=' rounded-lg w-[150px]' src={dataRegister.avatar} />
-            </div>   
-        </article>
+    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+        <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
+            <h1 className="text-3xl font-semibold text-center text-green-400 uppercase">
+                Nuevo usuario
+            </h1>
+            <form onSubmit={userRegister} className="mt-6">
+                <div className="mb-2">
+                    <label
+                        htmlFor="user"
+                        className="block text-sm font-semibold text-gray-800"
+                    >
+                        Usuario
+                    </label>
+                    <input
+                        type="user"
+                        onChange={handleChange}
+                        name="username"
+                        className="block w-full px-4 py-2 mt-2 text-green-400 bg-white border rounded-md focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    />
+                </div>
+                <div className="mb-2">
+                    <label
+                        htmlFor="password"
+                        className="block text-sm font-semibold text-gray-800"
+                    >
+                        Constraseña
+                    </label>
+                    <input
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        className="block w-full px-4 py-2 mt-2 text-green-400 bg-white border rounded-md focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    />
+                </div>
+                <div className="relative flex items-center justify-center w-full mt-6 border border-t">
+                    <div className="absolute px-5 bg-white"></div>
+                </div>
+
+                <div className="mb-2">
+                    <label
+                        htmlFor="name"
+                        className="block text-sm font-semibold text-gray-800"
+                    >
+                        Nombre
+                    </label>
+                    <input
+                        type="text"
+                        name="name"
+                        onChange={handleChange}
+                        className="block w-full px-4 py-2 mt-2 text-green-400 bg-white border rounded-md focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    />
+                </div>
+                <div className="mb-2">
+                    <label
+                        htmlFor="last_name"
+                        className="block text-sm font-semibold text-gray-800"
+                    >
+                        Apellidos
+                    </label>
+                    <input
+                        type="text"
+                        name="last_name"
+                        onChange={handleChange}
+                        className="block w-full px-4 py-2 mt-2 text-green-400 bg-white border rounded-md focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    />
+                </div>
+                <div className="mb-2">
+                    <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold text-gray-800"
+                    >
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
+                        className="block w-full px-4 py-2 mt-2 text-green-400 bg-white border rounded-md focus:border-green-400 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    />
+                </div>
+                <div className="mt-6 flex justify-center">
+                    <button className="w-1/2 px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:bg-green-600">
+                        Registrarse
+                    </button>
+                </div>
+            </form>
         </div>
-          
-      </form>
-    </div>
     </div>
   )
 }

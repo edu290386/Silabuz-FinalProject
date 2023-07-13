@@ -4,10 +4,12 @@ import { Outlet } from 'react-router-dom'
 const Dashboard = () => {
   return (
     <div>
-        <LoginNavbar />
-        <Outlet />
+        <NavBar />
+        <div className="flex">
+          <SideBar />
+          <Outlet />
+        </div>
     </div>
-    
   )
 }
 
