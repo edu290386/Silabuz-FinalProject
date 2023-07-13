@@ -13,6 +13,8 @@ const UserRanking = () => {
       setUserInfo(data);
     }
 
+    console.log(userInfo.avatar)
+
   useEffect(() => {
     getUser();
   }, [])

@@ -9,6 +9,8 @@ const Cart = () => {
                 {productid:2, title:"Moneda de Plata", img:silvercoin, precio:5, lives:2},
                 {productid:3, title:"Moneda de Cobre", img:coppercoin, precio:3, lives:1}]
 
+     
+
   const renderLives = (live) => {
     let checks=[]
     for ( let i=0; i<live;  i++){
