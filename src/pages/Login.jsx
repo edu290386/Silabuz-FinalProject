@@ -3,11 +3,13 @@ import { ContextProvider } from '../context/ContextApp'
 import { getUsers } from '../services/Services'
 import useSWR from 'swr'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
   const [dataLogin, setDataLogin] = useState({})
   const {setUserData} = useContext(ContextProvider)
+  const navigate = useNavigate()
   const userList = useSWR("ApiUsersLogin", getUsers, { refreshInterval: 1000 } )
   if(userList.error) return <div>error</div>;
   if(userList.isLoading) return <div>Cargando</div>;
@@ -28,6 +30,7 @@ const userLogin = (e) => {
     if (userFind) {
       setUserData({...userFind})
       localStorage.setItem("user", JSON.stringify(userFind))
+      navigate("/dashboard", {state: {logged: true}})
     } else {
       Swal.fire({
         icon: 'error',

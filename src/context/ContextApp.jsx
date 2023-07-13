@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 
 export const ContextProvider = createContext();
 
@@ -9,43 +10,45 @@ const ContextApp = ({ children }) => {
   const token = localStorage.getItem("user");
   console.log(token);
 
+ const {pathname} = useLocation();
+ console.log(pathname);
  
 
   useEffect(() => {
     if (token) {
       setUserData(JSON.parse(token));
-      navigate("/dashboard", { state: { logged: true }, replace: true });
+      navigate(pathname, { state: { logged: true }, replace: true });
     } else {
       navigate("/login", { state: { logged: false } });
     }
-  }, [token]);
+  }, []);
 
 
-  useEffect(() => {
-    if (token !== null) {
-      const eventList = [
-        "mousemove",
-        "mousedown",
-        "onclick",
-        "keydown",
-        "scroll",
-      ];
+  // useEffect(() => {
+  //   if (token !== null) {
+  //     const eventList = [
+  //       "mousemove",
+  //       "mousedown",
+  //       "onclick",
+  //       "keydown",
+  //       "scroll",
+  //     ];
 
-      let timeId
-      const activeTime = () => {
-        clearTimeout(timeId)
-        timeId = setTimeout(() => {
-          localStorage.removeItem("user")
-          navigate("/login")
-        }, 40000)
-      }
+  //     let timeId
+  //     const activeTime = () => {
+  //       clearTimeout(timeId)
+  //       timeId = setTimeout(() => {
+  //         localStorage.removeItem("user")
+  //         navigate("/login")
+  //       }, 40000)
+  //     }
       
-      eventList.forEach((event) => {
-        document.addEventListener(event, activeTime);
-      });
-      activeTime()
-    }
-  }, [token]);
+  //     eventList.forEach((event) => {
+  //       document.addEventListener(event, activeTime);
+  //     });
+  //     activeTime()
+  //   }
+  // }, [token]);
 
 
 
