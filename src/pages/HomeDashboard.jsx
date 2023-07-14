@@ -10,7 +10,7 @@ const HomeDashboard = () => {
           <div className="bg-white w-[60vw] shadow-xl rounded-lg items-middle justify-center pt-3">
             <img
                 className="h-10 m-auto"
-                src="./src/assets/Logo_memory_gaming.png"
+                src="/src/assets/Logo_memory_gaming.png"
                 alt="Memory Gaming"
             />
             <div className="relative flex items-center mt-4 justify-center w-full border border-t border-green-300"></div>

@@ -93,7 +93,7 @@ export const Navbar = () => {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
-                            src="./src/assets/avatar-default.gif"
+                            src="/src/assets/avatar-default.gif"
                             alt=""
                           />
                         </Menu.Button>

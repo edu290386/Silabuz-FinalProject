@@ -25,7 +25,7 @@ const Home = () => {
         </div>
           <div className="grid grid-cols-2 gap-1 mt-20">
             <div className="flex justify-center align-middle">
-              <img src="./src/assets/pi-logo.png" className="object-contain h-[200px]"></img>
+              <img src="/src/assets/pi-logo.png" className="object-contain h-[200px]"></img>
             </div>
             <div className="w-[500px]">
               <h3 className="text-2xl font-bold text-gray-400">Pi Game</h3>
