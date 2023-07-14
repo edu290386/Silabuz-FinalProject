@@ -62,7 +62,7 @@ const Cart = () => {
  
 
   return (
-    <div class="flex w-full justify-center items-center flex-col">
+    <div className="flex w-full justify-center items-center flex-col">
       <div className='w-auto flex items-center justify-center mb-20'>
         <article className="flex flex-wrap justify-center gap-10 mt-4 text-center">
           { productList.map((product) => (
