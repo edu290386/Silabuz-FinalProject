@@ -25,7 +25,7 @@ const Home = () => {
                   desafiando tus límites mentales mientras te sumerges en el fascinante mundo de 
                   los dígitos infinitos.
               </p>
-              <button class="mt-10 bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+              <button className="mt-10 bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
                 Iniciar juego
               </button>
             </div>

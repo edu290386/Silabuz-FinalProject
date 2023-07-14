@@ -4,7 +4,7 @@ import { getUsers } from '../services/Services'
 import useSWR from 'swr'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
-
+import LoadingBar from '../commons/LoadingBar'
 
 const Login = () => {
   const [dataLogin, setDataLogin] = useState({})
@@ -12,7 +12,11 @@ const Login = () => {
   const navigate = useNavigate()
   const userList = useSWR("ApiUsersLogin", getUsers, { refreshInterval: 1000 } )
   if(userList.error) return <div>error</div>;
-  if(userList.isLoading) return <div>Cargando</div>;
+  if(userList.isLoading) return (
+  <div className="flex justify-center h-screen items-center">
+    <LoadingBar/>
+  </div>
+  );
 
   
   const handleChange = (e) => {

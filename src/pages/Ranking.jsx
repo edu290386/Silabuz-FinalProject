@@ -1,12 +1,16 @@
 import { getUsers } from '../services/Services'
 import { Link } from 'react-router-dom'
 import useSWR from 'swr'
+import LoadingBar from '../commons/LoadingBar'
 
 const Ranking = () => {
   const userList = useSWR("ApiUsersLogin", getUsers)
   if(userList.error) return <div>error</div>;
-  if(userList.isLoading) return <div>Cargando</div>;
-  
+  if(userList.isLoading) return (
+    <div className="flex justify-center h-screen items-center">
+      <LoadingBar/>
+    </div>
+    );  
   const ranking = [...userList.data].sort((a,b) => a.score < b.score ? 1 : -1)
   
   return (
@@ -18,7 +22,7 @@ const Ranking = () => {
             alt="Memory Gaming"
         />
         <div className="relative flex items-center my-4 justify-center w-full border border-t border-green-300"></div>
-        <table class="table-auto w-full align-middle">
+        <table className="table-auto w-full align-middle">
           <tbody>
             {ranking.map( (user, index) => (
                 <tr className="align-middle border-t border-gray-200 border-solid" key={user.id}>

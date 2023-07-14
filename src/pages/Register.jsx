@@ -10,6 +10,7 @@ import Avatar2 from '../assets/Avatar2.webp'
 import Avatar3 from '../assets/Avatar3.webp'
 import Avatar4 from '../assets/Avatar4.webp'
 import Avatar5 from '../assets/Avatar5.webp'
+import LoadingBar from '../commons/LoadingBar'
 
 const options = [
   { value:Avatar1, label:'Avatar 1' },
@@ -25,8 +26,11 @@ const Register = () => {
   
   const {data, isLoading, error} = useSWR("ApiUsers", getUsers)
   if(error) return <div>error</div>;
-  if(isLoading) return <div>Cargando</div>;
- 
+  if(userList.isLoading) return (
+    <div className="flex justify-center h-screen items-center">
+      <LoadingBar/>
+    </div>
+    ); 
   
   const handleChange = (e) => {
         setDataRegister({...dataRegister, score:0, [e.target.name]: e.target.value
