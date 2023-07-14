@@ -23,7 +23,7 @@ const options = [
 const Register = () => {
   const [dataRegister, setDataRegister] = useState({avatar: Avatar1, lives:0})
   const navigate = useNavigate()
-  
+  const userList = useSWR("ApiUsersLogin", getUsers, { refreshInterval: 1000 } )
   const {data, isLoading, error} = useSWR("ApiUsers", getUsers)
   if(error) return <div>error</div>;
   if(userList.isLoading) return (

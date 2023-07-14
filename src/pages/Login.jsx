@@ -44,22 +44,6 @@ const userLogin = (e) => {
       })
     }
 }
-  {/*<div>
-    <h1>Colocar sus credenciales</h1>
-    <form onSubmit={userLogin} className='flex gap-4 items-end'>
-        <label className='flex flex-col'>
-            <span>Usuario</span>
-            <input onChange={handleChange} name="username" type="text" className='border-2 rounded-sm'/>
-        </label>
-        <label className="flex flex-col">
-            <span>Password</span>
-            <input onChange={handleChange} name="password" type="password" className='border-2 rounded-sm' />
-        </label>
-        <button className="bg-gray-200 rounded-sm px-2 py-0.5 w-max h-max">
-            Iniciar sesión
-        </button>
-    </form>
-</div> */}
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
